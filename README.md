@@ -2,11 +2,6 @@
 
 # Proyecto de investigación: Firebase & Cypress
 
-<section style="display: flex; justify-content: space-evenly; align-items: center; margin: 50px 0px; width: 100%">
-    <img alt='Cypress Logo' src="./docs/assets/logo/cypress_logo.png" heigth='100px' width='100px'/>
-    <img alt='Firebase Logo' src="./docs/assets/logo/firebase_logo.png" heigth='100px' width='100px'/>
-</section>
-
 ## Introducción
 
 Para este proyecto de investigación realizaremos la creación de una aplicación web la cual utilizará las herramientas de Google Firebase, las cuales incluyen desde herramientas de autenticación hasta la própia base de datos, con Firesore, y hosting.
