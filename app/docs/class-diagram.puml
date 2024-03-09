@@ -1,0 +1,253 @@
+@startuml Veterinarian
+!theme toy
+
+package domain {
+
+    package interfaces {
+        interface CreatingAnimalDTO {
+            +readonly id: Undefined
+            +name: String
+            +birthDate: Date
+            +gender: Gender
+            +size: Size
+            +breed: Breed
+            +vaccines: AnimalVaccine[]
+            +updatedAt: Date
+            +readonly createdAt: Date
+        }
+        interface FinalAnimalDTO {
+            +readonly id: UUID
+        }
+        interface VaccineDTO {
+            +readonly id: UUID
+            +name: String
+        }
+        interface IAnimalVaccine {
+            +vaccine: Vaccine
+            +vaccinationDate: Date
+        }
+    }
+
+    package models {
+        class Animal {
+            -readonly id: UUID
+            -name: String
+            -birthDate: Date
+            -gender: Gender
+            -size: Size
+            -breed: Breed
+            -vaccines: AnimalVaccine[]
+            -updatedAt: Date
+            -readonly createdAt: Date
+            ---
+            +get id(): UUID
+            +get name(): String
+            +get birthDate(): Date
+            +get gender(): Gender
+            +get size(): Size
+            +get breed(): Breed
+            +get vaccines(): AnimalVaccine[]
+            +get updatedAt(): Date
+            +get createdAt(): Date
+            ---
+            +set name(name: String): Void
+            +set birthDate(birthDate: Date): Void
+            +set gender(gender: Gender): Void
+            +set size(size: Size): Void
+            +set breed(breed: Breed): Void
+            +set vaccines(vaccines: AnimalVaccine[]): Void
+            +set updatedAt(updatedAt: Date): Void
+        }
+        class Vaccine {
+            -readonly id: UUID
+            -name: String
+            ---
+            +get id(): UUID
+            +get name(): String
+            ---
+            +set name(name: String): Void
+        }
+        class AnimalVaccine {
+            -vaccine: Vaccine
+            -vaccinationDate: Date
+            ---
+            +get vaccine(): Vaccine
+            +get vaccinationDate(): Date
+            ---
+            +set vaccine(vaccine: Vaccine): Void
+            +set vaccinationDate(vaccinationDate: Date): Void
+        }
+    }
+
+    package services {
+        class HttpService<T> {
+            ---
+            -request(endpoint: URL, options: Object): Response<T>
+            +get(endpoint: URL): Response<T[]>
+            +post(endpoint: URL, data: Object): Response<Boolean>
+            +put(endpoint:URL, data: Object): Response<Boolean>
+            +delete(endpoint: URL, id: UUID): Response<Boolean>
+        }
+        
+        class AnimalService {
+            -animals: Map<UUID, Animal>
+            -endpoint: URL
+            -httpService: HttpService<Animal>
+            ---
+            +selectAllAnimals(): Promise<Animal[]>
+            +selectAnimalById(id: UUID): Promise<Animal>
+            +deleteAnimal(id: UUID): Promise<Boolean>
+            +updateAnimal(animal: FinalAnimalDTO): Promise<Boolean>
+            +insertAnimal(animal: FinalAnimalDTO): Promise<Boolean>
+        }
+
+        class VaccineService {
+            -vaccines: Map<UUID, Vaccine>
+            -endpoint: URL
+            -httpService: HttpService<Vaccine>
+            ---
+            +selectAllVaccines(): Promise<Vaccine[]>
+            +selectVaccineById(id: UUID): Promise<Vaccine>
+            +deleteVaccine(id: UUID): Promise<Boolean>
+            +updateVaccine(vaccine: VaccineDTO): Promise<Boolean>
+            +insertVaccine(vaccine: VaccineDTO): Promise<Boolean>
+        }
+    }
+
+}
+
+package views {
+
+    class FormView {
+        +form: HTMLFormElement
+        +method: Method
+        ---
+        +bindFormSubmitButton(handlerFormSubmitButton: Function): Void
+        ---
+        +sendFormData(): CreationAnimalDTO
+        +clearForm(): Void
+        -fillForm(animal: FinalAnimalDTO): Void
+        -createAnimalVaccine(): HTMLElement
+        -createVaccineSelector(vaccinesAvailable: Vaccines[], defaultVaccine: VaccineDTO | Null): HTMLSelectElement
+        -createVaccineDate(): HTMLInputElement
+        -removeAnimalVaccine(): Void
+    }
+
+    class AnimalView {
+        +statusSection: HTMLSpanElement
+        +layoutSelector: HTMLSelectElement
+        +isActive: Boolean
+        +tableLayout: AnimalTableView
+        +cardLayout: AnimalCardView
+        ---
+        +bindLoadAnimals(handlerLoader: Function): Void
+        +bindLayoutSelector(handlerLayout: Function): Void
+        ---
+        +changeLayout(loyout: Layout)
+        +showStatusLog(status: String): Void
+    }
+  
+    class AnimalCardView {
+        -cards: HTMLElement[]
+        ---
+        +bindActionButtons(handlerDeleteButtons: Function, handlerUpdateButtons: Function): Void
+        ---
+        +render(animals: Map<UUID, FinalAnimalDTO>): Void
+        -createBody(animals: Map<UUID, FinalAnimalDTO>): Void
+        -generateRow(animal: FinalAnimalDTO): String
+        -createHeaders(): Void
+
+    }
+
+    class AnimalTableView {
+        -table: HTMLTableElement
+        ---
+        +bindActionButtons(handlerDeleteButtons: Function, handlerUpdateButtons: Function): Void
+        ---
+        +render(animals: Map<UUID, FinalAnimalDTO>): Void
+        -generateCard(animal: FinalAnimalDTO): String
+    }
+    
+  
+}
+
+package controllers {
+    class VeterinarianController {
+        -animalService: AnimalService
+        -vaccineService: VaccineService
+        -animalCardView: AnimalCardView
+        -animalTableView: AnimalTableView
+        -insertFormView: InsertFormView
+        -updateFormView: UpdateFormView
+        ---
+        +updateEntries(): Void
+        ---
+        +handlerLoader(): Void
+        +handlerDeleteButtons(id: UUID): Void
+        +handlerUpdateButtons(id: UUID): Void
+        +handlerFormSubmitButton(method: Method, animal: FinalAnimalDTO): Void
+        +handlerLayout(): Void
+    }
+}
+
+class Commons <types>{
+    type UUID: String
+    type URL: String
+    type Breed: String
+}
+
+package enums {
+    enum Gender {
+        Male: "Macho"
+        Female: "Hembra"
+    }
+    enum Size {
+        Small: "Pequeño"
+        Medium: "Mediano"
+        Big: "Grande"
+    }
+    enum Layout {
+        Cards: "Cards"
+        Table: "Table"
+    }
+    enum Method {
+        GET: "GET"
+        POST: "POST"
+        PUT: "PUT"
+        DELETE: "DELETE"
+        PATCH: "PATCH"
+    }
+}
+
+class Main {
+    app: VeterinarianController
+}
+
+note left of Main
+    Launcher
+end note
+
+Main *-- VeterinarianController: "Formado por"
+
+VeterinarianController o-- AnimalService: "Contiene"
+VeterinarianController o-- VaccineService: "Contiene"
+VeterinarianController o-- AnimalView: "Contiene"
+VeterinarianController o-- FormView: "Contiene"
+
+AnimalView *.. AnimalTableView: "Formado por" 
+AnimalView *.. AnimalCardView: "Formado por" 
+
+AnimalService o-- HttpService: "Contiene"
+VaccineService o-- HttpService: "Contiene"
+AnimalService *-- Animal: "Formado por"
+VaccineService *-- Vaccine: "Formado por"
+
+AnimalVaccine *-- Vaccine: "Formado por"
+Animal o-- AnimalVaccine: "Puede contener"
+
+FinalAnimalDTO <|-- CreatingAnimalDTO: "Se extiende"
+Animal ..|> FinalAnimalDTO: "Implementa"
+Vaccine ..|> VaccineDTO: "Implementa"
+AnimalVaccine ..|> IAnimalVaccine: "Implementa"
+
+@enduml

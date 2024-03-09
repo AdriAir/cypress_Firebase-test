@@ -1,0 +1,99 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 87vh;
+
+    & article.hidden {
+        visibility: hidden;
+        display: inline;
+    }
+
+    & i.insert-form {
+        margin-top: 1%;
+        width: fit-content;
+        font-size: 1rem;
+        padding: 0.5%;
+        border-radius: 5px;
+        border: 2px solid black;
+    }
+
+    & form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & h2 {
+            margin: 5% 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10%;
+        }
+
+        & article {
+            display: flex;
+            margin: 10px 0;
+            flex-direction: column;
+            width: fit-content;
+            height: fit-content;
+
+            & input,
+            select,
+            label {
+                height: 30px;
+                width: 250px;
+                margin: 1%;
+            }
+
+            & i.confirm-button {
+                width: fit-content;
+                margin: 20% 0;
+                padding: 5px;
+                border-radius: 10px;
+                border: 2px solid black;
+            }
+        }
+
+        & article.vaccines-form {
+            display: flex;
+            flex-direction: row;
+
+            & i.add-vaccine {
+                margin-top: 1%;
+                width: fit-content;
+                font-size: 1rem;
+                padding: 0.5%;
+                border-radius: 5px;
+                border: 2px solid black;
+            }
+        }
+
+        & .vaccine-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            & article.vaccine-row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            & input,
+            select,
+            label {
+                height: 30px;
+                width: 250px;
+                margin: 1%;
+            }
+
+            & i.remove-button {
+                border: 2px solid black;
+                height: fit-content;
+                border-radius: 5px;
+                padding: 0.5%;
+            }
+        }
+    }
+}

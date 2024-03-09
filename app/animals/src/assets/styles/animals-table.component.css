@@ -1,0 +1,17 @@
+.animal-table-wrapper {
+    overflow-y: auto;
+    height: 80vh;
+    & .animal-table {
+        table-layout: fixed;
+        border-collapse: collapse;
+        width: 100%;
+
+        & td,
+        tr,
+        th {
+            border-bottom: 1px solid black;
+            text-align: center;
+            height: 75px;
+        }
+    }
+}
