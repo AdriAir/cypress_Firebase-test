@@ -4,7 +4,7 @@
 
 ## Introducción
 
-Para este proyecto de investigación realizaremos la creación de una aplicación web la cual utilizará las herramientas de Google Firebase, las cuales incluyen desde herramientas de autenticación hasta la própia base de datos, con Firesore, y hosting.
+Para este proyecto de investigación realizaremos la creación de una aplicación web la cual utilizará las herramientas de Google Firebase, las cuales incluyen desde herramientas de autenticación hasta la propia base de datos, con Firesore, y hosting.
 
 Además de eso, aprenderemos a aplicar testing con Cypress en nuestro proyecto de Node.js, para ello abriremos las tripas de la misma app usada para el despliegue con Firebase.
 
@@ -32,7 +32,7 @@ Google firebase, además, nos permite utilizar **Google Analytics** con nuestra 
 
 ![Google Analytics](image-3.png)
 
-Se nos preguntará sobre que cuenta queremos gestionar los anális de firebase:
+Se nos preguntará sobre qué cuenta queremos gestionar los análisis de firebase:
 
 ![Selección de cuenta para análisis](image-4.png)
 
@@ -84,11 +84,11 @@ Esto abrirá nuestro navegador:
 
 ![Log in desde el navegador](image-11.png)
 
-Una vez iniciarmos sesión con nuestra cuenta de google, la cual debe tener acceso al proyecto de firebase, podremos continuar en nuestra terminal.
+Una vez iniciemos sesión con nuestra cuenta de google, la cual debe tener acceso al proyecto de firebase, podremos continuar en nuestra terminal.
 
 ![Log in correcto](image-12.png)
 
-En caso de utilizar un framework, debemos activar una función expermental:
+En caso de utilizar un framework, debemos activar una función experimental:
 
 ```bash
 npx firebase experiments:enable webframeworks
@@ -119,7 +119,7 @@ cd ./project-name
 npm i firebase
 ```
 
-Finalmente, en nuestro archivo **main.ts**, conectaremos la apliación con firebase:
+Finalmente, en nuestro archivo **main.ts**, conectaremos la aplicación con firebase:
 
 ![Conectar app con firebase](image-16.png)
 

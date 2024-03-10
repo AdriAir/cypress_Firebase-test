@@ -13,7 +13,8 @@ export class AppController {
         private animalView: AnimalView,
         private formView: FormView
     ) {
-        this.login();
+        // this.login();
+        this.init();
     }
 
     //Mezclamos capas por que es un ejemplo
