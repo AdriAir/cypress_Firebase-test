@@ -1,24 +1,18 @@
 {
-    "name": "p6-animals",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "json": "json-server --watch ./src/assets/mocks/veterinarian.json",
-        "build": "tsc && vite build",
-        "preview": "vite preview"
-    },
-    "devDependencies": {
-        "@types/uuid": "^9.0.7",
-        "firebase-tools": "^13.4.1",
-        "typescript": "^5.2.2",
-        "vite": "^5.0.0"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.4.2",
-        "date-fns": "^2.30.0",
-        "dexie": "^3.2.4",
-        "uuid": "^9.0.1"
-    }
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "firebase-tools": "^13.4.1"
+  }
 }

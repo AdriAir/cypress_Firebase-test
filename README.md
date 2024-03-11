@@ -135,7 +135,7 @@ Entramos en **Build -> Authentication**
 
 Un vez, ahí, en la sección de **Sign-in method** activamos los proveedores que necesitemos, en nuestro caso, **Google**:
 
-![LIstado de proveedores disponibles](image-18.png)
+![Listado de proveedores disponibles](image-18.png)
 
 ![Activando el proveedor de google](image-19.png)
 
@@ -155,6 +155,24 @@ Hemos creado una función que nos permite iniciar sesión con google al pulsar u
 
 ## Cypress
 
+### Tipos de Enfoque
+
+En Cypress existen dos tipos de enfoque: **End-to-End** y **Component Testing**.
+
+Ambos enfoques tienen un proposito diferente dentro del testing de software.
+
+#### End-to-End (E2E)
+
+- Prueba de la app completa, desde la interfaz de usuario hasta la base de datos.
+- Simulación de un usuario real (botones, formularios...).
+- Son mas lentos que **Component Testing**, pues requieren replicar el escenario final.
+
+#### Component Testing
+
+- Pruebas de secciones individuales de la app.
+- Entorno aislado: Las pruebas se ejecutan en un entorno incomunicado del resto de la aplicación.
+- Se utilizan para detectar errores en una etapa temprana de la aplicación o cuando su implementación no está disponible aún.
+
 ## Bibliografia
 
 [Firebase - Documentación](https://firebase.google.com/docs)
@@ -166,5 +184,9 @@ Hemos creado una función que nos permite iniciar sesión con google al pulsar u
 ---
 
 [Cypress - Documentación](https://docs.cypress.io/guides/overview/why-cypress)
+
+[Cypress - End-to-End](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test)
+
+[Cypress - Component Testing](https://docs.cypress.io/guides/component-testing/overview)
 
 ---
