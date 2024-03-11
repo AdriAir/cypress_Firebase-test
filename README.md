@@ -161,17 +161,44 @@ En Cypress existen dos tipos de enfoque: **End-to-End** y **Component Testing**.
 
 Ambos enfoques tienen un proposito diferente dentro del testing de software.
 
+![alt text](image-21.png)
+
 #### End-to-End (E2E)
 
-- Prueba de la app completa, desde la interfaz de usuario hasta la base de datos.
-- Simulación de un usuario real (botones, formularios...).
-- Son mas lentos que **Component Testing**, pues requieren replicar el escenario final.
+-   Prueba de la app completa, desde la interfaz de usuario hasta la base de datos.
+-   Simulación de un usuario real (botones, formularios...).
+-   Son mas lentos que **Component Testing**, pues requieren replicar el escenario final.
 
 #### Component Testing
 
-- Pruebas de secciones individuales de la app.
-- Entorno aislado: Las pruebas se ejecutan en un entorno incomunicado del resto de la aplicación.
-- Se utilizan para detectar errores en una etapa temprana de la aplicación o cuando su implementación no está disponible aún.
+-   Pruebas de secciones individuales de la app.
+-   Entorno aislado: Las pruebas se ejecutan en un entorno incomunicado del resto de la aplicación.
+-   Se utilizan para detectar errores en una etapa temprana de la aplicación o cuando su implementación no está disponible aún.
+
+### Ejemplo
+
+He descargado una aplicación básica que sirve como **Carrito de la compra**. (**NECESITAS INICIAR LA APP DE VITE PARA QUE LOS TESTS FUNCIONEN**)
+
+Vamos a realizar varios tests para ver si hay fallos en el funcionamiento:
+
+En primer lugar tenemos que abrir la web la cual queremos ejecuitar los tests. Esto se ejecuta antes de cada test.
+
+![alt text](image-22.png)
+
+**NOTA:** Los `Wait()` no se usan para esto generalmente.
+Estos se suelen usar para esperar a que se ejecuten otros procesos, sobretodo asincronos, como consultas a la base de datos. En este caso lo estoy haciendo para que podamos ver como se van añadiendo y eliminando elementos al carrito.
+
+El primer test añade una serie de productos al carrito y comprueba que se han añadido correctamente:
+
+![alt text](image-23.png)
+
+El segundo test marca como **Hecho** varios productos del carro y comprueba que se han eliminado del carrito y añadido a la lista de **Trabajos hechos**
+
+![alt text](image-24.png)
+
+El tercer y último test elimina los productos de la lista de **Trabajos hechos** y comprueba que se eliminan correctamente
+
+![alt text](image-25.png)
 
 ## Bibliografia
 

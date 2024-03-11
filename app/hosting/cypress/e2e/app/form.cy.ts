@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Add form", () => {
+describe("Cart Form", () => {
     beforeEach(() => {
         cy.visit("http://localhost:5173/#/todo");
     });
@@ -13,6 +13,7 @@ describe("Add form", () => {
      *
      * En este caso lo estoy haciendo para que podamos ver como se van añadiendo y eliminando elementos al carrito.
      */
+
     it("add products to cart", () => {
         const products = [
             "Leche",
