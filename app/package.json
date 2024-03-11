@@ -7,13 +7,11 @@
         "dev": "vite",
         "json": "json-server --watch ./src/assets/mocks/veterinarian.json",
         "build": "tsc && vite build",
-        "preview": "vite preview",
-        "scanner": "sonar-scanner"
+        "preview": "vite preview"
     },
     "devDependencies": {
         "@types/uuid": "^9.0.7",
         "firebase-tools": "^13.4.1",
-        "sonarqube-scanner": "^3.3.0",
         "typescript": "^5.2.2",
         "vite": "^5.0.0"
     },
