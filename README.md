@@ -18,47 +18,47 @@ En este caso utilizaremos Firebase para realizar el despliegue de una aplicació
 
 En primer lugar, antes de comenzar en local, tendremos que crear un proyecto en la nube. Para ello, utilizaremos la web de [Firebase](https://firebase.google.com/).
 
-![Página de inicio de Firebase](image.png)
+![Página de inicio de Firebase](./docs/assets/img/image.png)
 
 Una vez iniciemos sesión, podremos acceder a nuestro gestor de proyectos:
 
-![Gestor de proyectos de Firebase](image-1.png)
+![Gestor de proyectos de Firebase](./docs/assets/img/image-1.png)
 
 Al comenzar a crear un proyecto, se nos pedirá el nombre del mismo, además de un ID único para identificar la web:
 
-![Creación de proyecto](image-2.png)
+![Creación de proyecto](./docs/assets/img/image-2.png)
 
 Google firebase, además, nos permite utilizar **Google Analytics** con nuestra web, para el analisis de datos sobre el tráfico, interacciones...
 
-![Google Analytics](image-3.png)
+![Google Analytics](./docs/assets/img/image-3.png)
 
 Se nos preguntará sobre qué cuenta queremos gestionar los análisis de firebase:
 
-![Selección de cuenta para análisis](image-4.png)
+![Selección de cuenta para análisis](./docs/assets/img/image-4.png)
 
 Entonces comenzará a generarse el proyecto:
 
-![Generación del proyecto](image-5.png)
+![Generación del proyecto](./docs/assets/img/image-5.png)
 
-![Proyecto generado](image-6.png)
+![Proyecto generado](./docs/assets/img/image-6.png)
 
 Finalmente, aparecerá el panel de control del proyecto:
 
-![Gestor del proyecto](image-7.png)
+![Gestor del proyecto](./docs/assets/img/image-7.png)
 
 Ahora crearemos la app de firebase, podemos crear cualquiera de las siguientes aplicaciones:
 
-![Aplicaciones compatibles](image-8.png)
+![Aplicaciones compatibles](./docs/assets/img/image-8.png)
 
 En nuestro caso, crearemos una aplicación web.
 
 Al comienzo, necesitamos un nombre:
 
-![Creación de aplicación web](image-9.png)
+![Creación de aplicación web](./docs/assets/img/image-9.png)
 
 Las instrucciones para generar y configurar inicialmente la aplicación aparecerán:
 
-![Instrucciones para generar la app en NodeJS](image-10.png)
+![Instrucciones para generar la app en NodeJS](./docs/assets/img/image-10.png)
 
 ### Implementación en NodeJS
 
@@ -82,11 +82,11 @@ npx firebase login
 
 Esto abrirá nuestro navegador:
 
-![Log in desde el navegador](image-11.png)
+![Log in desde el navegador](./docs/assets/img/image-11.png)
 
 Una vez iniciemos sesión con nuestra cuenta de google, la cual debe tener acceso al proyecto de firebase, podremos continuar en nuestra terminal.
 
-![Log in correcto](image-12.png)
+![Log in correcto](./docs/assets/img/image-12.png)
 
 En caso de utilizar un framework, debemos activar una función experimental:
 
@@ -102,15 +102,15 @@ npx firebase init hosting
 
 Entonces, podremos usar la aplicación que creamos anteriormente:
 
-![Uso del proyecto de firebase](image-13.png)
+![Uso del proyecto de firebase](./docs/assets/img/image-13.png)
 
 Especificamos configuraciones varias como el framework:
 
-![Configuraciones varias](image-14.png)
+![Configuraciones varias](./docs/assets/img/image-14.png)
 
 También configuraremos la región del servidor de despliegue:
 
-![Hosting region](image-15.png)
+![Hosting region](./docs/assets/img/image-15.png)
 
 Tendremos que importar el SDK de Firebase utilizando:
 
@@ -121,7 +121,7 @@ npm i firebase
 
 Finalmente, en nuestro archivo **main.ts**, conectaremos la aplicación con firebase:
 
-![Conectar app con firebase](image-16.png)
+![Conectar app con firebase](./docs/assets/img/image-16.png)
 
 ### Implementar autenticación
 
@@ -131,27 +131,51 @@ En nuestro caso, vamos a realizar el inicio de sessión con google, pero antes d
 
 Entramos en **Build -> Authentication**
 
-![Sección de Autenticación](image-17.png)
+![Sección de Autenticación](./docs/assets/img/image-17.png)
 
 Un vez, ahí, en la sección de **Sign-in method** activamos los proveedores que necesitemos, en nuestro caso, **Google**:
 
-![Listado de proveedores disponibles](image-18.png)
+![Listado de proveedores disponibles](./docs/assets/img/image-18.png)
 
-![Activando el proveedor de google](image-19.png)
+![Activando el proveedor de google](./docs/assets/img/image-19.png)
 
 Hemos creado una función que nos permite iniciar sesión con google al pulsar un botón, además de mostrar nuestros datos:
 
-![Función de login con google](image-20.png)
+![Función de login con google](./docs/assets/img/image-20.png)
+
+**TENGO UN ERROR DE AUTENITCACIÓN**
 
 ### Base de datos: Firestore
 
+Firestore es una base de datos NoSQL documental integrada dentro de Firebase. Esta base de datos, además de ser jerárquica, también es coompatible con un conjunto básico de **Queries**, permitiendo un mayor control y filtro de los datos.
+
 #### Creación de la base de datos
+
+Desde el panel de control podemos crear una base de datos:
+
+![alt text](./docs/assets/img/image-26.png)
+
+**NO HE PODIDO AVANZAR POR FALTA DE PERMISOS. AL NO INICIAR SESIÓN, NO PUEDO ACCEDER**
 
 #### ¿Consultas sobre la base de datos NoSQL Documental?
 
 #### Reglas de seguridad
 
 ### Despliegue del proyecto
+
+Para desplegar una app en firebase es muy simple, utilizamos el comando:
+
+```bash
+npx firebase deploy
+```
+
+Esto utiliza la configuración predeterminada de **firebase.json** y construye el proyecto:
+
+![alt text](./docs/assets/img/image-27.png)
+
+Al finalizar tendremos un enlace del proyecto desplegado en los servidores de Firebase:
+
+[Despliegue: Carrito](https://vite-project-8730a.web.app)
 
 ## Cypress
 
@@ -161,7 +185,7 @@ En Cypress existen dos tipos de enfoque: **End-to-End** y **Component Testing**.
 
 Ambos enfoques tienen un proposito diferente dentro del testing de software.
 
-![alt text](image-21.png)
+![alt text](./docs/assets/img/image-21.png)
 
 #### End-to-End (E2E)
 
@@ -183,22 +207,22 @@ Vamos a realizar varios tests para ver si hay fallos en el funcionamiento:
 
 En primer lugar tenemos que abrir la web la cual queremos ejecuitar los tests. Esto se ejecuta antes de cada test.
 
-![alt text](image-22.png)
+![alt text](./docs/assets/img/image-22.png)
 
 **NOTA:** Los `Wait()` no se usan para esto generalmente.
 Estos se suelen usar para esperar a que se ejecuten otros procesos, sobretodo asincronos, como consultas a la base de datos. En este caso lo estoy haciendo para que podamos ver como se van añadiendo y eliminando elementos al carrito.
 
 El primer test añade una serie de productos al carrito y comprueba que se han añadido correctamente:
 
-![alt text](image-23.png)
+![alt text](./docs/assets/img/image-23.png)
 
 El segundo test marca como **Hecho** varios productos del carro y comprueba que se han eliminado del carrito y añadido a la lista de **Trabajos hechos**
 
-![alt text](image-24.png)
+![alt text](./docs/assets/img/image-24.png)
 
 El tercer y último test elimina los productos de la lista de **Trabajos hechos** y comprueba que se eliminan correctamente
 
-![alt text](image-25.png)
+![alt text](./docs/assets/img/image-25.png)
 
 ## Bibliografia
 

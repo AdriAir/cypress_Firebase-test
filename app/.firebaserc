@@ -1,7 +1,6 @@
 {
   "projects": {
-    "default": "vite-project-8730a",
-    "hosting": "vite-project-8730a"
+    "default": "vite-project-8730a"
   },
   "targets": {},
   "etags": {}
