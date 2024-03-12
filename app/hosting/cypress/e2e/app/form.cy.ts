@@ -93,4 +93,26 @@ describe("Cart Form", () => {
             cy.wait(100);
         });
     });
+
+    it("add products to cart with starting special chars", () => {
+        const products = [
+            "Leche",
+            ".Pan",
+            "?Huevos",
+            "Aceite de oliva",
+            ",Tomate en lata",
+            "Queso",
+        ];
+
+        for (const product of products) {
+            cy.get("input[type=text]").type(`${product}{enter}`);
+            cy.wait(100);
+        }
+
+        cy.get("#cart div").should("have.length", products.length);
+
+        cy.get("#cart div").each((item, index) => {
+            cy.wrap(item).should("contain.text", products[index]);
+        });
+    });
 });
